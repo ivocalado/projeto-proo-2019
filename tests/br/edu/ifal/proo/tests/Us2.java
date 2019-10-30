@@ -10,7 +10,7 @@ import org.junit.rules.ExpectedException;
 import br.edu.ifal.proo.Fachada;
 import br.edu.ifal.proo.excecoes.AtributoInvalidoException;
 import br.edu.ifal.proo.excecoes.CadastroInvalidoException;
-import br.edu.ifal.proo.excecoes.PerfilNaoEncontradoException;
+import br.edu.ifal.proo.excecoes.FalhaAutenticacaoException;
 
 /**
  * User Story-- Alterar Perfil
@@ -45,9 +45,9 @@ public class Us2 {
 	 */
 	@Test
 	public void test001() throws Exception {
-		exceptionRule.expect(PerfilNaoEncontradoException.class);
+		exceptionRule.expect(FalhaAutenticacaoException.class);
+		exceptionRule.expectMessage("Login/senha incorretos");
 
-		exceptionRule.expectMessage("Perfil não encontrado");
 		fachada.changeProfileInformation("joao", "123", "email", "123");
 	}
 
@@ -58,9 +58,8 @@ public class Us2 {
 	 */
 	@Test
 	public void test002() throws Exception {
-		exceptionRule.expect(PerfilNaoEncontradoException.class);
-
-		exceptionRule.expectMessage("Perfil não encontrado");
+		exceptionRule.expect(FalhaAutenticacaoException.class);
+		exceptionRule.expectMessage("Login/senha incorretos");
 		fachada.changeProfileInformation(null, "123", "email", "123");
 	}
 
@@ -72,8 +71,8 @@ public class Us2 {
 	 */
 	@Test
 	public void test003() throws Exception {
-		exceptionRule.expect(AtributoInvalidoException.class);
-		exceptionRule.expectMessage("Senha inválida");
+		exceptionRule.expect(FalhaAutenticacaoException.class);
+		exceptionRule.expectMessage("Login/senha incorretos");
 		fachada.changeProfileInformation("mariasilva", "12334", "nomeExibicao", "fsdfs");
 	}
 
@@ -85,8 +84,8 @@ public class Us2 {
 	 */
 	@Test
 	public void test004() throws Exception {
-		exceptionRule.expect(AtributoInvalidoException.class);
-		exceptionRule.expectMessage("Senha inválida");
+		exceptionRule.expect(FalhaAutenticacaoException.class);
+		exceptionRule.expectMessage("Login/senha incorretos");
 		fachada.changeProfileInformation("mariasilva", null, "nomeExibicao", "fsdfs");
 	}
 

@@ -60,5 +60,15 @@ public class Fachada {
 		return "";
 	}
 
+	public String createBlog(String login, String password, String titulo, String descricao) throws FalhaAutenticacaoException, CadastroInvalidoException {
+		return "";
+		
+	}
+
+	public String getBlogInformation(String idBlog, String atributo) throws AtributoInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }
