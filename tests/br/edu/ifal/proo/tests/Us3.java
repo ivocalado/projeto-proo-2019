@@ -55,7 +55,6 @@ public class Us3 {
 		exceptionRule.expect(FalhaAutenticacaoException.class);
 		exceptionRule.expectMessage("Login/senha incorretos");
 		fachada.createBlog("joaosilva", "123", "Meu blog", "Descrição");
-		
 	}
 
 	/**
