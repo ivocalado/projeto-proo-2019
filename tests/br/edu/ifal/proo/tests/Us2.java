@@ -29,7 +29,7 @@ public class Us2 {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		fachada = new Fachada();
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -253,7 +253,7 @@ public class Us2 {
 	 */
 	@Test
 	public void test019() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "qwe2", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
 

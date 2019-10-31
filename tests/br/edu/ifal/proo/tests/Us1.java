@@ -55,7 +55,7 @@ public class Us1 {
 	@BeforeClass
 	public static void setUp() throws Exception {
 		fachada = new Fachada();
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 	}
 
 	@AfterClass
@@ -172,7 +172,7 @@ public class Us1 {
 	 */
 	@Test
 	public void test010() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 		exceptionRule.expect(CadastroInvalidoException.class);
 		exceptionRule.expectMessage("Login existente");
 		
@@ -190,7 +190,7 @@ public class Us1 {
 	 */
 	@Test
 	public void test011() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "qwe2", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/1980",
 				"Eu sou eu");
 
@@ -206,7 +206,7 @@ public class Us1 {
 	 */
 	@Test
 	public void test012() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		exceptionRule.expect(PerfilNaoEncontradoException.class);
 		exceptionRule.expectMessage("Perfil não encontrado");
@@ -219,7 +219,7 @@ public class Us1 {
 	 */
 	@Test
 	public void test013() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		exceptionRule.expect(PerfilNaoEncontradoException.class);
 		exceptionRule.expectMessage("Perfil não encontrado");
@@ -232,7 +232,7 @@ public class Us1 {
 	 */
 	@Test
 	public void test014() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "qwe2", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
 		
@@ -247,7 +247,7 @@ public class Us1 {
 	 */
 	@Test
 	public void test015() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "qwe2", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
 		
@@ -262,7 +262,7 @@ public class Us1 {
 	 */
 	@Test
 	public void test016() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "qwe2", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
 		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",

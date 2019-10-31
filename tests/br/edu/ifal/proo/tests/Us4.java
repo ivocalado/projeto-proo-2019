@@ -3,12 +3,15 @@
  */
 package br.edu.ifal.proo.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import br.edu.ifal.proo.Fachada;
+import br.edu.ifal.proo.excecoes.AtributoInvalidoException;
 import br.edu.ifal.proo.excecoes.FalhaAutenticacaoException;
 import br.edu.ifal.proo.excecoes.FalhaAutorizacaoException;
 
@@ -103,7 +106,7 @@ public class Us4 {
 	 */
 	@Test
 	public void test006() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -122,7 +125,7 @@ public class Us4 {
 	 */
 	@Test
 	public void test007() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -142,7 +145,7 @@ public class Us4 {
 	 */
 	@Test
 	public void test008() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -155,5 +158,65 @@ public class Us4 {
 		exceptionRule.expect(FalhaAutorizacaoException.class);
 		exceptionRule.expectMessage("Acesso não autorizado");
 		fachada.changeBlogInformation("mariasilva", "123", id2, "Meu blog", "Descrição");
+	}
+	
+	/**
+	 * Testa a atribuição do campo titulo vazio
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void test009() throws Exception {
+		fachada.clearPersistence();
+
+		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
+				"Eu sou outra pessoa");
+
+		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
+				"Whatever is said in Latin sounds profound");
+
+		exceptionRule.expect(AtributoInvalidoException.class);
+		exceptionRule.expectMessage("Acesso não autorizado");
+		fachada.changeBlogInformation("sicrano", "1235", id2, "", "Descrição");
+	}
+	
+	/**
+	 * Testa a atribuição do campo titulo vazio
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void test010() throws Exception {
+		fachada.clearPersistence();
+
+		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
+				"Eu sou outra pessoa");
+
+		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
+				"Whatever is said in Latin sounds profound");
+
+		exceptionRule.expect(AtributoInvalidoException.class);
+		exceptionRule.expectMessage("Acesso não autorizado");
+		fachada.changeBlogInformation("sicrano", "1235", id2, null, "Descrição");
+	}
+	
+	/**
+	 * Testa a modificacao e posterior recuperação dos dados
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void test011() throws Exception {
+		fachada.clearPersistence();
+
+		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
+				"Eu sou outra pessoa");
+
+		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
+				"Whatever is said in Latin sounds profound");
+
+		fachada.changeBlogInformation("sicrano", "1235", id2, "novo titulo", "nova descricao");
+		assertEquals("novo titulo", fachada.getBlogInformation(id2, "titulo"));
+		assertEquals("nova descricao", fachada.getBlogInformation(id2, "descricao"));
 	}
 }

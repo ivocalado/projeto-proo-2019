@@ -11,7 +11,7 @@ public class Fachada {
 	/**
 	 * Limpa os dados existentes no banco de dados
 	 */
-	public void cleanPersistence() {
+	public void clearPersistence() {
 		// TODO
 	}
 
@@ -39,13 +39,19 @@ public class Fachada {
 	 * 
 	 * 
 	 */
-	public void createProfile(String login, String senha, String nomeExibicao, String email, String sexo,
+	public void createProfile(String login, String senha, String nomeExibicao, 
+			String email, String sexo,
 			String dataNascimento, String biografia) throws CadastroInvalidoException {
 		// TODO
 	}
 
 	/**
-	 * Retorna os dados pessoais do usuario dado o campo passado
+	 * Retorna os dados pessoais do usuario dado o campo passado. Os atributos possíveis são:
+	 *    - nomeExibicao
+	 *    - email
+	 *    - sexo
+	 *    - dataNascimento
+	 *    - biografia
 	 * 
 	 * @param login
 	 * @param atributo
@@ -87,7 +93,11 @@ public class Fachada {
 	}
 
 	/**
-	 * Retorna os dados de um blog por atributo
+	 * Retorna os dados de um blog por atributo. Os atributos possíveis são:
+	 *   - titulo
+	 *   - descricao
+	 *   - dono
+	 *   
 	 * @param idBlog id do blog a ser recuperado
 	 * @param atributo atributo buscado
 	 * @return propriedade buscada
@@ -102,9 +112,9 @@ public class Fachada {
 	 * Modifica os dados do blog
 	 * @param login do do usuário
 	 * @param senha senha do usuário
-	 * @param blogId
-	 * @param atributo
-	 * @param valor
+	 * @param blogId id do blogo a ser modificado
+	 * @param atributo atributo a ser modificado
+	 * @param valor novo valor a ser modificado
 	 * @throws FalhaAutenticacaoException lançada se o par login/senha não conseguir autenticar o usuário
 	 * @throws AtributoInvalidoException lançada se o atributo referenciado for inexistente
 	 * @throws CadastroInvalidoException lançada se os valores de cadastro do blog estiverem inválidos
@@ -112,6 +122,38 @@ public class Fachada {
 	 */
 	public void changeBlogInformation(String login, String senha, String blogId, String atributo, String valor) throws FalhaAutenticacaoException, AtributoInvalidoException, CadastroInvalidoException, FalhaAutorizacaoException {
 		// TODO Auto-generated method stub		
+	}
+	
+	/**
+	 * Realiza o cadastro de um novo post
+	 * @param login do do usuário
+	 * @param senha senha do usuário
+	 * @param blogId id do blogo a ser modificado
+	 * @param titulo título do novo post
+	 * @param conteudo conteúdo do novo post
+	 * @return id do post criado
+	 * @throws FalhaAutenticacaoException lançada se o par login/senha não conseguir autenticar o usuário
+	 * @throws CadastroInvalidoException lançada se os valores de cadastro do post estiverem inválidos
+	 * @throws FalhaAutorizacaoException lançada se o blog não pertencer ao usuário informado
+	 */
+	public String createPost(String login, String senha, String blogId, String titulo, String conteudo) throws FalhaAutenticacaoException, FalhaAutorizacaoException, CadastroInvalidoException {
+		return "";
+	}
+	
+	
+	/**
+	 * Retorna os atributos de um post. Os atributos possíveis são:
+	 *    - titulo
+	 *    - conteudo
+	 *    - dataCriacao (formato => dd/MM/yyyy)
+	 * 
+	 * @param postId
+	 * @param atributo
+	 * @return
+	 * @throws AtributoInvalidoException
+	 */
+	public String getPostInformation(String postId, String atributo) throws AtributoInvalidoException {
+		return "";
 	}
 
 	

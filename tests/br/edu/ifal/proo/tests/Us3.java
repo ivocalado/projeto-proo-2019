@@ -122,7 +122,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test007() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -141,7 +141,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test008() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -159,7 +159,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test009() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -177,7 +177,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test010() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -195,7 +195,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test011() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -213,7 +213,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test012() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -232,7 +232,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test013() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -251,7 +251,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test014() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -270,7 +270,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test015() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
@@ -289,7 +289,7 @@ public class Us3 {
 	 */
 	@Test
 	public void test016() throws Exception {
-		fachada.cleanPersistence();
+		fachada.clearPersistence();
 
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
