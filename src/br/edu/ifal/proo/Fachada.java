@@ -155,6 +155,23 @@ public class Fachada {
 	public String getPostInformation(String postId, String atributo) throws AtributoInvalidoException {
 		return "";
 	}
+	
+	/**
+	 * Permite a modificação dos dados de um post
+	 * @param login do do usuário
+	 * @param senha senha do usuário
+	 * @param blogId id do blogo a ser modificado
+	 * @param postId id do post a ser modificado
+	 * @param atributo nome do atributo a ser modificado. Pode ser 'titulo' ou 'conteudo'
+	 * @param valor novo valor do atributo
+	 * @throws FalhaAutenticacaoException lançada se o par login/senha não conseguir autenticar o usuário
+	 * @throws AtributoInvalidoException lançada se o atributo referenciado for inexistente
+	 * @throws CadastroInvalidoException lançada se os valores de cadastro do post estiverem inválidos
+	 * @throws FalhaAutorizacaoException lançada se o blog não pertencer ao usuário informado ou o post não pertencer ao blog
+	 */
+	public void changePostInformation(String login, String senha, String blogId, String postId, String atributo, String valor) throws FalhaAutenticacaoException, FalhaAutorizacaoException, AtributoInvalidoException, CadastroInvalidoException {
+		
+	}
 
 	
 }

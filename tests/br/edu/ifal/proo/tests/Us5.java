@@ -27,7 +27,7 @@ import br.edu.ifal.proo.excecoes.FalhaAutorizacaoException;
  * 
  * -Campos obrigatórios: 
  *    * Título do post
- *    * Texto
+ *    * Conteúdo
  * 
  * @author ivocalado
  *
@@ -109,6 +109,7 @@ public class Us5 {
 	 */
 	@Test
 	public void test006() throws Exception {
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
 		
@@ -123,6 +124,7 @@ public class Us5 {
 	 */
 	@Test
 	public void test007() throws Exception {
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
 		
@@ -137,6 +139,7 @@ public class Us5 {
 	 */
 	@Test
 	public void test008() throws Exception {
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
 		
@@ -151,6 +154,7 @@ public class Us5 {
 	 */
 	@Test
 	public void test009() throws Exception {
+		fachada.clearPersistence();
 		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
 				"Eu sou eu");
 		
@@ -249,12 +253,12 @@ public class Us5 {
 		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
 				"Whatever is said in Latin sounds profound");
 		
-		fachada.createPost("sicrano", "1235",  id2,  "Titulo do post",  "Conteúdo do post");
-		assertEquals("Titulo do post", fachada.getPostInformation(id2, "titulo"));
-		assertEquals("Conteúdo do post", fachada.getPostInformation(id2, "conteudo"));
+		String postId = fachada.createPost("sicrano", "1235",  id2,  "Titulo do post",  "Conteúdo do post");
+		assertEquals("Titulo do post", fachada.getPostInformation(postId, "titulo"));
+		assertEquals("Conteúdo do post", fachada.getPostInformation(postId, "conteudo"));
 		
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		assertEquals(format.format(new Date()), fachada.getPostInformation(id2, "dataCriacao"));
+		assertEquals(format.format(new Date()), fachada.getPostInformation(postId, "dataCriacao"));
 	}
 
 }
