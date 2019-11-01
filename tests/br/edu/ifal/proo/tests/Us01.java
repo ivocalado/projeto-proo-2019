@@ -45,7 +45,7 @@ de forma a compor o perfil de um novo usuário.
 *        *email
 *
 */
-public class Us1 {
+public class Us01 {
 
 	static Fachada fachada;
 

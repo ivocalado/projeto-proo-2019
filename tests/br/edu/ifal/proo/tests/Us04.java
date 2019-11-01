@@ -24,7 +24,7 @@ import br.edu.ifal.proo.excecoes.FalhaAutorizacaoException;
  * @author ivocalado
  *
  */
-public class Us4 {
+public class Us04 {
 
 	static Fachada fachada;
 

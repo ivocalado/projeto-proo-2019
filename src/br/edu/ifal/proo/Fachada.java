@@ -159,9 +159,10 @@ public class Fachada {
 	 * @param postId
 	 * @param atributo
 	 * @return
-	 * @throws AtributoInvalidoException
+	 * @throws AtributoInvalidoException lançada se o atributo é inválido
+	 * @throws FalhaAutorizacaoException lançada se o id é inválido
 	 */
-	public String getPostInformation(String postId, String atributo) throws AtributoInvalidoException {
+	public String getPostInformation(String postId, String atributo) throws AtributoInvalidoException, FalhaAutorizacaoException {
 		return "";
 	}
 	
@@ -300,6 +301,21 @@ public class Fachada {
 	 * blog cujo proprietário é o usuário informado
 	 */
 	public void deletePost(String login, String senha, String postId) throws FalhaAutenticacaoException, FalhaAutorizacaoException {
+		
+	}
+	
+	/**
+	 * Deleta um blog pertencendo a um usuario. Deleta todos os posts e comentarios 
+	 * relacionados
+	 * @param login do dono do blog
+	 * @param senha do dono do blog
+	 * @param blogId id do post a ser deletado
+	 * @throws FalhaAutenticacaoException lançada caso não seja possível autenticar o 
+	 * usuário
+	 * @throws FalhaAutorizacaoException lançada caso o id informado não pertença a um 
+	 * blog cujo proprietário é o usuário informado
+	 */
+	public void deleteBlog(String login, String senha, String blogId) throws FalhaAutenticacaoException, FalhaAutorizacaoException {
 		
 	}
 }

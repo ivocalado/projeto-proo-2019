@@ -6,14 +6,14 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	Us1.class, 
-	Us2.class, 
-	Us3.class, 
-	Us4.class, 
-	Us5.class, 
-	Us6.class, 
-	Us7.class,
-	Us8.class
+	Us01.class, 
+	Us02.class, 
+	Us03.class, 
+	Us04.class, 
+	Us05.class, 
+	Us06.class, 
+	Us07.class,
+	Us08.class
 })
 public class AllTests {
 

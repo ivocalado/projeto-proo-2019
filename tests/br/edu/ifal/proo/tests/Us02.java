@@ -19,7 +19,7 @@ import br.edu.ifal.proo.excecoes.FalhaAutenticacaoException;
  * alterar seus dados cadastrais. (ex.: alterar senha). Para alteração, o login
  * e senha do usuário deve ser informado.
  */
-public class Us2 {
+public class Us02 {
 
 	static Fachada fachada;
 

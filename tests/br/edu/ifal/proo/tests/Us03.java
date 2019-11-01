@@ -31,7 +31,7 @@ import br.edu.ifal.proo.excecoes.FalhaAutenticacaoException;
  * @author ivocalado
  *
  */
-public class Us3 {
+public class Us03 {
 	static Fachada fachada;
 	
 	@Rule

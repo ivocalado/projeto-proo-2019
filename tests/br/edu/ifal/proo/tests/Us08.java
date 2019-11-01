@@ -25,9 +25,9 @@ import br.edu.ifal.proo.excecoes.FalhaAutorizacaoException;
  * @author ivocalado
  *
  */
-public class Us8 {
+public class Us08 {
 
-static Fachada fachada;
+	static Fachada fachada;
 	
 	@Rule
 	public ExpectedException exceptionRule = ExpectedException.none();
