@@ -95,7 +95,7 @@ static Fachada fachada;
 	@Test
 	public void test004() throws Exception {
 		exceptionRule.expect(FalhaAutorizacaoException.class);
-		exceptionRule.expectMessage("Acesso negado");
+		exceptionRule.expectMessage("Post inválido");
 		fachada.deletePost("sicrano", "1235", "");		
 	}
 
@@ -139,7 +139,9 @@ static Fachada fachada;
 	 */
 	@Test
 	public void test008() throws Exception {
-		fachada = new Fachada();
+		exceptionRule.expect(FalhaAutorizacaoException.class);
+		exceptionRule.expectMessage("Post inválido");
+
 		fachada.clearPersistence();
 		
 		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
@@ -159,9 +161,98 @@ static Fachada fachada;
 		postId = fachada.getPostByBlog(blogId, 0);
 		fachada.deletePost("sicrano", "1235", postId);
 		fachada.deletePost("sicrano", "1235", postId);
+	}
+	
+	/**
+	 * Testa se um comentário de um post deletado continua disponível
+	 * @throws Exception
+	 */
+	@Test
+	public void test009() throws Exception {
 		exceptionRule.expect(FalhaAutorizacaoException.class);
-		exceptionRule.expectMessage("Acesso negado");
+		exceptionRule.expectMessage("Post inválido");
 
+		fachada.clearPersistence();
+		
+		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
+				"Eu sou outra pessoa");
+		
+		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
+				"Eu sou eu");
+
+		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
+				"Whatever is said in Latin sounds profound");
+		
+		String postId = fachada.createPost("sicrano", "1235",  id2,  "Titulo do post",  "Conteúdo do post");
+		String com1 = fachada.addComment("sicrano", "1235", postId, "conteudo 1");
+		String com2 = fachada.addComment("mariasilva", "123", postId, "conteudo 2");
+		
+		String blogId = fachada.getBlogByLogin("sicrano", 0);
+		postId = fachada.getPostByBlog(blogId, 0);
+		
+		fachada.deletePost("sicrano", "1235", postId);
+		fachada.getCommentAuthor(com1);
 	}
 
+	/**
+	 * Testa se um comentário de um post deletado continua disponível
+	 * @throws Exception
+	 */
+	@Test
+	public void test010() throws Exception {
+		exceptionRule.expect(FalhaAutorizacaoException.class);
+		exceptionRule.expectMessage("Post inválido");
+
+		fachada.clearPersistence();
+		
+		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
+				"Eu sou outra pessoa");
+		
+		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
+				"Eu sou eu");
+
+		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
+				"Whatever is said in Latin sounds profound");
+		
+		String postId = fachada.createPost("sicrano", "1235",  id2,  "Titulo do post",  "Conteúdo do post");
+		String com1 = fachada.addComment("sicrano", "1235", postId, "conteudo 1");
+		
+		String blogId = fachada.getBlogByLogin("sicrano", 0);
+		postId = fachada.getPostByBlog(blogId, 0);
+		
+		fachada.deletePost("sicrano", "1235", postId);
+		fachada.getCommentText(com1);
+	}
+	
+	/**
+	 * Testa se o número de posts em um blog após deleção
+	 * @throws Exception
+	 */
+	@Test
+	public void test011() throws Exception {
+
+		fachada.clearPersistence();
+		
+		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
+				"Eu sou outra pessoa");
+		
+		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
+				"Eu sou eu");
+
+		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
+				"Whatever is said in Latin sounds profound");
+		
+		String postId = fachada.createPost("sicrano", "1235",  id2,  "Titulo do post",  "Conteúdo do post");
+		
+		fachada.addComment("sicrano", "1235", postId, "conteudo 1");
+		fachada.addComment("mariasilva", "123", postId, "conteudo 2");
+		
+		String blogId = fachada.getBlogByLogin("sicrano", 0);
+		assertEquals(1, fachada.getNumberOfPosts(blogId));
+		
+		postId = fachada.getPostByBlog(blogId, 0);
+		
+		fachada.deletePost("sicrano", "1235", postId);
+		assertEquals(0, fachada.getNumberOfPosts(blogId));
+	}
 }
