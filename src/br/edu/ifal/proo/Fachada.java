@@ -6,6 +6,7 @@ import br.edu.ifal.proo.excecoes.CadastroInvalidoException;
 import br.edu.ifal.proo.excecoes.FalhaAutenticacaoException;
 import br.edu.ifal.proo.excecoes.FalhaAutorizacaoException;
 import br.edu.ifal.proo.excecoes.PerfilNaoEncontradoException;
+import br.edu.ifal.proo.excecoes.PostNaoEncontradoException;
 
 public class Fachada {
 
@@ -213,7 +214,7 @@ public class Fachada {
 	 * @throws AtributoInvalidoException lançada caso o índice passado não se refira
 	 * a um post válido
 	 */
-	public String getPostByBlogId(String blogId, int index) throws BlogNaoEncontradoException, AtributoInvalidoException {
+	public String getPostByBlog(String blogId, int index) throws BlogNaoEncontradoException, AtributoInvalidoException {
 		return "";
 	}
 	
@@ -224,6 +225,30 @@ public class Fachada {
 	 * @throws BlogNaoEncontradoException lançada caso o blog informado não exista
 	 */
 	public int getNumberOfPosts(String blogId) throws BlogNaoEncontradoException {
+		return 0;
+	}
+
+	/**
+	 * Retorna o id do comentario na posição 'index'
+	 * @param postId id do post a ser buscado
+	 * @param index índice do comentário a ser buscado
+	 * @return id do comentário encontrado
+	 * @throws PostNaoEncontradoException lançada caso o post não exista
+	 * @throws AtributoInvalidoException lançada caso o índice passado não se refira
+	 * a um comentário válido
+	 */
+
+	public String getCommentByPost(String postId, int index) throws PostNaoEncontradoException, AtributoInvalidoException {
+		return "";
+	}
+	
+	/**
+	 * Retorna o número de comentários de um post
+	 * @param postId id do post
+	 * @return número de comentários
+	 * @throws PostNaoEncontradoException lançada caso o post não seja encontrado
+	 */
+	public int getNumberOfComments(String postId) throws PostNaoEncontradoException {
 		return 0;
 	}
 	
@@ -261,5 +286,20 @@ public class Fachada {
 	 */
 	public String getCommentAuthor(String commentId) throws FalhaAutorizacaoException {
 		return "";
+	}
+
+	/**
+	 * Deleta um post pertencendo a um blog do usuario. Deleta todos os comentarios 
+	 * relacionados
+	 * @param login do dono do blog
+	 * @param senha do dono do blog
+	 * @param postId id do post a ser deletado
+	 * @throws FalhaAutenticacaoException lançada caso não seja possível autenticar o 
+	 * usuário
+	 * @throws FalhaAutorizacaoException lançada caso o id informado não pertença a um 
+	 * blog cujo proprietário é o usuário informado
+	 */
+	public void deletePost(String login, String senha, String postId) throws FalhaAutenticacaoException, FalhaAutorizacaoException {
+		
 	}
 }

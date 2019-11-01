@@ -118,7 +118,7 @@ public class Us7 {
 		String blogId = fachada.getBlogByLogin("sicrado", 0);
 		int numPosts = fachada.getNumberOfPosts(blogId);
 		assertEquals(1, numPosts);
-		String postId = fachada.getPostByBlogId(blogId, 0);
+		String postId = fachada.getPostByBlog(blogId, 0);
 		String comentarioId1 = fachada.addComment("sicrano", "1235", postId, "conteudo 1");
 		String comentarioId2 = fachada.addComment("mariasilva", "123", postId, "conteudo 2");
 		assertNotEquals(comentarioId1, comentarioId2);
