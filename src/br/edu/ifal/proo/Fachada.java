@@ -1,6 +1,7 @@
 package br.edu.ifal.proo;
 
 import br.edu.ifal.proo.excecoes.AtributoInvalidoException;
+import br.edu.ifal.proo.excecoes.BlogNaoEncontradoException;
 import br.edu.ifal.proo.excecoes.CadastroInvalidoException;
 import br.edu.ifal.proo.excecoes.FalhaAutenticacaoException;
 import br.edu.ifal.proo.excecoes.FalhaAutorizacaoException;
@@ -39,9 +40,11 @@ public class Fachada {
 	 * 
 	 * 
 	 */
-	public void createProfile(String login, String senha, String nomeExibicao, 
+	public void createProfile(String login, 
+			String senha, String nomeExibicao, 
 			String email, String sexo,
-			String dataNascimento, String biografia) throws CadastroInvalidoException {
+			String dataNascimento, 
+			String biografia) throws CadastroInvalidoException {
 		// TODO
 	}
 
@@ -87,7 +90,10 @@ public class Fachada {
 	 * @throws FalhaAutenticacaoException lançada se o par login/senha não conseguir autenticar o usuário
 	 * @throws CadastroInvalidoException lançada se os valores de cadastro do blog estiverem inválidos
 	 */
-	public String createBlog(String login, String senha, String titulo, String descricao) throws FalhaAutenticacaoException, CadastroInvalidoException {
+	public String createBlog(String login, 
+			String senha, 
+			String titulo, 
+			String descricao) throws FalhaAutenticacaoException, CadastroInvalidoException {
 		return "";
 		
 	}
@@ -136,7 +142,9 @@ public class Fachada {
 	 * @throws CadastroInvalidoException lançada se os valores de cadastro do post estiverem inválidos
 	 * @throws FalhaAutorizacaoException lançada se o blog não pertencer ao usuário informado
 	 */
-	public String createPost(String login, String senha, String blogId, String titulo, String conteudo) throws FalhaAutenticacaoException, FalhaAutorizacaoException, CadastroInvalidoException {
+	public String createPost(
+			String login, String senha, String blogId, 
+			String titulo, String conteudo) throws FalhaAutenticacaoException, FalhaAutorizacaoException, CadastroInvalidoException {
 		return "";
 	}
 	
@@ -160,18 +168,98 @@ public class Fachada {
 	 * Permite a modificação dos dados de um post
 	 * @param login do do usuário
 	 * @param senha senha do usuário
-	 * @param blogId id do blogo a ser modificado
 	 * @param postId id do post a ser modificado
 	 * @param atributo nome do atributo a ser modificado. Pode ser 'titulo' ou 'conteudo'
 	 * @param valor novo valor do atributo
 	 * @throws FalhaAutenticacaoException lançada se o par login/senha não conseguir autenticar o usuário
 	 * @throws AtributoInvalidoException lançada se o atributo referenciado for inexistente
 	 * @throws CadastroInvalidoException lançada se os valores de cadastro do post estiverem inválidos
-	 * @throws FalhaAutorizacaoException lançada se o blog não pertencer ao usuário informado ou o post não pertencer ao blog
+	 * @throws FalhaAutorizacaoException lançada se o post não pertencer a um blog de propriedade do usuário
 	 */
-	public void changePostInformation(String login, String senha, String blogId, String postId, String atributo, String valor) throws FalhaAutenticacaoException, FalhaAutorizacaoException, AtributoInvalidoException, CadastroInvalidoException {
+	public void changePostInformation(String login, String senha, String postId, String atributo, String valor) throws FalhaAutenticacaoException, FalhaAutorizacaoException, AtributoInvalidoException, CadastroInvalidoException {
 		
 	}
 
+	/**
+	 * Retorna o número de blogs de um dado usuário
+	 * @param login
+	 * @return o número de blogs
+	 * @throws AtributoInvalidoException lançada caso não exista um usuário com 
+	 * o login definido
+	 */
+	public int getNumberOfBlogsByLogin(String login) throws PerfilNaoEncontradoException {
+		return 0;
+	}
 	
+	/**
+	 * Retorna o id do blog na posição 'index'. 
+	 * @param login login do usuário a ser buscado
+	 * @param index posição do blog
+	 * @return id do blog encontrado
+	 * @throws PerfilNaoEncontradoException lançada o login passado não exista 
+	 * @throws AtributoInvalidoException lançada caso o índice passado não se 
+	 * refira a um login válido
+	 */
+	public String getBlogByLogin(String login, int index) throws PerfilNaoEncontradoException, AtributoInvalidoException {
+		return "";
+	}
+	
+	/**
+	 * Retorna o id do post na posição 'index'
+	 * @param blogId id do blog a ser buscado
+	 * @param index índice do post a ser buscado
+	 * @return id do post encontrado
+	 * @throws BlogNaoEncontradoException lançada caso o blog não exista
+	 * @throws AtributoInvalidoException lançada caso o índice passado não se refira
+	 * a um post válido
+	 */
+	public String getPostByBlogId(String blogId, int index) throws BlogNaoEncontradoException, AtributoInvalidoException {
+		return "";
+	}
+	
+	/**
+	 * Retorna o número de posts de um dado blog
+	 * @param blogId id do blog buscado
+	 * @return número de posts do blog
+	 * @throws BlogNaoEncontradoException lançada caso o blog informado não exista
+	 */
+	public int getNumberOfPosts(String blogId) throws BlogNaoEncontradoException {
+		return 0;
+	}
+	
+	/**
+	 * Adiciona comentário a um post
+	 * @param login do usuário que postou o comentário
+	 * @param senha do comentário que postou o comentáio
+	 * @param postId id do post de origem
+	 * @param conteudo a ser postado
+	 * @return id do novo comentário
+	 * @throws FalhaAutenticacaoException lançada caso não seja possível validar 
+	 * a autenticação do usuário
+	 * @throws FalhaAutorizacaoException lançada caso não seja possível encontrar o post informado
+	 * @throws CadastroInvalidoException lançada caso o conteúdo do comentário seja vazio
+	 */
+	public String addComment(String login, String senha, String postId, String conteudo) throws FalhaAutenticacaoException, FalhaAutorizacaoException, CadastroInvalidoException {
+		return "";
+	}
+	
+	/**
+	 * Retorna o texto de um comentário
+	 * @param commentId id do comentário a ser recuperado
+	 * @return conteúdo do comentário
+	 * @throws FalhaAutorizacaoException lançada caso o id fornecido seja inválido.
+	 */
+	public String getCommentText(String commentId) throws FalhaAutorizacaoException {
+		return "";
+	}
+	
+	/**
+	 * Retorna o login do usuário que postou o comentário
+	 * @param commentId id do comentário a ser recuperado
+	 * @return login do usuário que postou o comentário
+	 * @throws FalhaAutorizacaoException lançada caso o id fornecido seja inválido.
+	 */
+	public String getCommentAuthor(String commentId) throws FalhaAutorizacaoException {
+		return "";
+	}
 }
