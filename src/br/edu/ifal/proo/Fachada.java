@@ -1,5 +1,7 @@
 package br.edu.ifal.proo;
 
+import java.util.List;
+
 import br.edu.ifal.proo.excecoes.AtributoInvalidoException;
 import br.edu.ifal.proo.excecoes.BlogNaoEncontradoException;
 import br.edu.ifal.proo.excecoes.CadastroInvalidoException;
@@ -186,7 +188,7 @@ public class Fachada {
 	 * Retorna o número de blogs de um dado usuário
 	 * @param login
 	 * @return o número de blogs
-	 * @throws AtributoInvalidoException lançada caso não exista um usuário com 
+	 * @throws PerfilNaoEncontradoException lançada caso não exista um usuário com 
 	 * o login definido
 	 */
 	public int getNumberOfBlogsByLogin(String login) throws PerfilNaoEncontradoException {
@@ -317,5 +319,72 @@ public class Fachada {
 	 */
 	public void deleteBlog(String login, String senha, String blogId) throws FalhaAutenticacaoException, FalhaAutorizacaoException {
 		
+	}
+	
+	/**
+	 * Deleta o perfil de um usuário. Deve-se deletado em cascata:
+	 *    - Os blogs do usuário
+	 *    - Os posts do blog e comentário
+	 *    - Os comentários em posts de outros usuários onde o usuário comentou 
+	 * @param login
+	 * @param senha
+	 * @throws FalhaAutenticacaoException
+	 */
+	public void deleteProfile(String login, String senha) throws FalhaAutenticacaoException {
+		
+	}
+	
+	/**
+	 * Busca por perfis de usuários que casem com o perfil. 
+	 * 
+	 * A busca deve ser realizada sobre os nomes de exibição dos usuários
+	 * (obs.: se o nome do usuário nao estiver disponível, entao usa-se o login)
+	 * 
+	 * Além disso, a busca deve buscar em partes do nome do usuário. Por exemplo, suponha
+	 * que no banco conste os seguintes registros:
+	 *    - Maria
+	 *    - Maria José da silva
+	 *    - Mariana rocha
+	 *    - Mario antonio
+	 *    - Jose Maria
+	 * , e que seja realizada uma busca a parte da string 'maria'. Neste caso deveria ser
+	 * retornado uma lista contendo os logins dos usuários:
+	 *    - Maria
+	 *    - Maria José da silva
+	 *    - Mariana rocha
+	 *    - José Maria
+	 *    
+	 * É importante destacar que a busca deve ser case-insensitive. 
+	 * @param match padrao a ser buscado
+	 * @return lista dos logins dos usuários que casam na busca
+	 * A lista deve estar ordenada.
+	 */
+	public List<String> findProfileByName(String match) {
+		return null;
+	}
+	
+	/**
+	 * Busca perfis de usuário por gênero
+	 * @param gender genero a ser buscado
+	 * @return lista dos logins dos usuários que casam na busca
+	 * A lista deve estar ordenada.
+	 */
+	public List<String> findProfileByGender(String gender) {
+		return null;
+	}
+	
+	/**
+	 * 	Busca por blogs que casem com o perfil. 
+	 * 
+	 * A busca deve ser realizada sobre o título dos blogs.
+	 * 
+	 * De modo semelhante à busca de perfis, caso partes do nome casem devem ser retornado
+	 * A busca deve ser case-insensitive retornando uma lista ordenada com os ids dos 
+	 * blogs
+	 * @param match
+	 * @return
+	 */
+	public List<String> findBlogByName(String match) {
+		return null;
 	}
 }

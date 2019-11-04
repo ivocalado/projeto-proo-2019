@@ -105,7 +105,6 @@ public class Us09 {
 		exceptionRule.expect(FalhaAutenticacaoException.class);
 		exceptionRule.expectMessage("Blog inválido");
 		
-		fachada = new Fachada();
 		fachada.clearPersistence();
 		
 		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
@@ -133,7 +132,6 @@ public class Us09 {
 		exceptionRule.expect(FalhaAutenticacaoException.class);
 		exceptionRule.expectMessage("Blog inválido");
 		
-		fachada = new Fachada();
 		fachada.clearPersistence();
 		
 		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
@@ -161,7 +159,6 @@ public class Us09 {
 		exceptionRule.expect(FalhaAutenticacaoException.class);
 		exceptionRule.expectMessage("Acesso negado");
 		
-		fachada = new Fachada();
 		fachada.clearPersistence();
 		
 		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
@@ -186,10 +183,7 @@ public class Us09 {
 	 */
 	@Test
 	public void test009() throws Exception {
-		exceptionRule.expect(FalhaAutenticacaoException.class);
-		exceptionRule.expectMessage("Acesso negado");
 		
-		fachada = new Fachada();
 		fachada.clearPersistence();
 		
 		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
