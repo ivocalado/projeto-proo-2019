@@ -41,7 +41,7 @@ Para o desenvolvimento a equipe deverá seguir os seguintes passos:
 A entrega da atividade será dividida em duas etapas com igual objetivo sendo que a segunda etapa consistirá da reapresentação do trabalho visando avaliar as correções aplicadas pelos grupos. Caso algum grupo atinja a nota 10,0 na primeira apresentação não será necessário a reapresentação. Seguem as datas:
 
 * 1ª entrega: 21/11/2019 até às 23:59
-* 2ª entrega: 20/11/2019 até às 12:00 (meio-dia), impreterivelmente.
+* 2ª entrega: 29/11/2019 até às 12:00 (meio-dia), impreterivelmente.
 
 # IMPORTANTE: Penalidade por cópia
 
