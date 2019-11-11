@@ -177,7 +177,7 @@ public class Us04 {
 
 		exceptionRule.expect(AtributoInvalidoException.class);
 		exceptionRule.expectMessage("Acesso não autorizado");
-		fachada.changeBlogInformation("sicrano", "1235", id2, "", "Descrição");
+		fachada.changeBlogInformation("sicrano", "1235", id2, "titulo", "");
 	}
 	
 	/**
@@ -197,7 +197,7 @@ public class Us04 {
 
 		exceptionRule.expect(AtributoInvalidoException.class);
 		exceptionRule.expectMessage("Acesso não autorizado");
-		fachada.changeBlogInformation("sicrano", "1235", id2, null, "Descrição");
+		fachada.changeBlogInformation("sicrano", "1235", id2, "titulo", null);
 	}
 	
 	/**
@@ -215,7 +215,8 @@ public class Us04 {
 		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
 				"Whatever is said in Latin sounds profound");
 
-		fachada.changeBlogInformation("sicrano", "1235", id2, "novo titulo", "nova descricao");
+		fachada.changeBlogInformation("sicrano", "1235", id2, "descricao", "nova descricao");
+		fachada.changeBlogInformation("sicrano", "1235", id2, "titulo", "novo titulo");
 		assertEquals("novo titulo", fachada.getBlogInformation(id2, "titulo"));
 		assertEquals("nova descricao", fachada.getBlogInformation(id2, "descricao"));
 	}
