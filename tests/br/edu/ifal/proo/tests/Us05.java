@@ -178,7 +178,7 @@ public class Us05 {
 				"Whatever is said in Latin sounds profound");
 		
 		exceptionRule.expect(CadastroInvalidoException.class);
-		exceptionRule.expectMessage("Dados do blog incorretos");
+		exceptionRule.expectMessage("Dados do post incorretos");
 		fachada.createPost("sicrano", "1235",  id2,  "",  "");
 	}
 	
@@ -197,7 +197,7 @@ public class Us05 {
 				"Whatever is said in Latin sounds profound");
 		
 		exceptionRule.expect(CadastroInvalidoException.class);
-		exceptionRule.expectMessage("Dados do blog incorretos");
+		exceptionRule.expectMessage("Dados do post incorretos");
 		fachada.createPost("sicrano", "1235",  id2,  null,  "");
 	}
 	
@@ -216,7 +216,7 @@ public class Us05 {
 				"Whatever is said in Latin sounds profound");
 		
 		exceptionRule.expect(CadastroInvalidoException.class);
-		exceptionRule.expectMessage("Dados do blog incorretos");
+		exceptionRule.expectMessage("Dados do post incorretos");
 		fachada.createPost("sicrano", "1235",  id2,  "sdffgg",  "");
 	}
 	
@@ -235,7 +235,7 @@ public class Us05 {
 				"Whatever is said in Latin sounds profound");
 		
 		exceptionRule.expect(CadastroInvalidoException.class);
-		exceptionRule.expectMessage("Dados do blog incorretos");
+		exceptionRule.expectMessage("Dados do post incorretos");
 		fachada.createPost("sicrano", "1235",  id2,  "sdfsdf",  null);
 	}
 	

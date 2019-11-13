@@ -95,7 +95,7 @@ public class Us08 {
 	@Test
 	public void test004() throws Exception {
 		exceptionRule.expect(FalhaAutorizacaoException.class);
-		exceptionRule.expectMessage("Post inválido");
+		exceptionRule.expectMessage("Acesso negado");
 		fachada.deletePost("sicrano", "1235", "");		
 	}
 
@@ -140,7 +140,7 @@ public class Us08 {
 	@Test
 	public void test008() throws Exception {
 		exceptionRule.expect(FalhaAutorizacaoException.class);
-		exceptionRule.expectMessage("Post inválido");
+		exceptionRule.expectMessage("Acesso negado");
 
 		fachada.clearPersistence();
 		
@@ -170,7 +170,7 @@ public class Us08 {
 	@Test
 	public void test009() throws Exception {
 		exceptionRule.expect(FalhaAutorizacaoException.class);
-		exceptionRule.expectMessage("Post inválido");
+		exceptionRule.expectMessage("Acesso negado");
 
 		fachada.clearPersistence();
 		
@@ -201,7 +201,7 @@ public class Us08 {
 	@Test
 	public void test010() throws Exception {
 		exceptionRule.expect(FalhaAutorizacaoException.class);
-		exceptionRule.expectMessage("Post inválido");
+		exceptionRule.expectMessage("Acesso negado");
 
 		fachada.clearPersistence();
 		

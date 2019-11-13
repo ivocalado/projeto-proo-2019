@@ -12,6 +12,7 @@ import org.junit.rules.ExpectedException;
 
 import br.edu.ifal.proo.Fachada;
 import br.edu.ifal.proo.excecoes.AtributoInvalidoException;
+import br.edu.ifal.proo.excecoes.CadastroInvalidoException;
 import br.edu.ifal.proo.excecoes.FalhaAutenticacaoException;
 import br.edu.ifal.proo.excecoes.FalhaAutorizacaoException;
 
@@ -175,8 +176,8 @@ public class Us04 {
 		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
 				"Whatever is said in Latin sounds profound");
 
-		exceptionRule.expect(AtributoInvalidoException.class);
-		exceptionRule.expectMessage("Acesso não autorizado");
+		exceptionRule.expect(CadastroInvalidoException.class);
+		exceptionRule.expectMessage("Título inválido");
 		fachada.changeBlogInformation("sicrano", "1235", id2, "titulo", "");
 	}
 	
@@ -195,8 +196,8 @@ public class Us04 {
 		String id2 = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
 				"Whatever is said in Latin sounds profound");
 
-		exceptionRule.expect(AtributoInvalidoException.class);
-		exceptionRule.expectMessage("Acesso não autorizado");
+		exceptionRule.expect(CadastroInvalidoException.class);
+		exceptionRule.expectMessage("Título inválido");
 		fachada.changeBlogInformation("sicrano", "1235", id2, "titulo", null);
 	}
 	
