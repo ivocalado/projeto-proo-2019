@@ -189,6 +189,10 @@ public class Us09 {
 		fachada.createProfile("sicrano", "1235", "Sicrano na Silva", "sicrano@gmail.com", "Masculino", "01/01/1980",
 				"Eu sou outra pessoa");
 		
+		fachada.createProfile("mariasilva", "123", "Maria Silva", "maria@gmail.com", "Feminino", "01/01/2000",
+				"Eu sou eu");
+
+		
 
 		String blogId = fachada.createBlog("sicrano", "1235", "Meu primeiro blog",
 				"Whatever is said in Latin sounds profound");
